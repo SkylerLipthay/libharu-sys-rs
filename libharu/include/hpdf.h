@@ -164,6 +164,15 @@ HPDF_SaveToFile  (HPDF_Doc     pdf,
 
 
 HPDF_EXPORT(HPDF_STATUS)
+HPDF_SaveToExternalStream  (HPDF_Doc     pdf,
+                            HPDF_Stream  stream);
+
+
+HPDF_EXPORT(HPDF_MMgr)
+HPDF_GetMMgr  (HPDF_Doc     pdf);
+
+
+HPDF_EXPORT(HPDF_STATUS)
 HPDF_GetError  (HPDF_Doc   pdf);
 
 

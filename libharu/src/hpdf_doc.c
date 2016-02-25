@@ -766,6 +766,30 @@ HPDF_SaveToFile  (HPDF_Doc     pdf,
 }
 
 
+HPDF_EXPORT(HPDF_STATUS)
+HPDF_SaveToExternalStream  (HPDF_Doc     pdf,
+                            HPDF_Stream stream)
+{
+  HPDF_PTRACE ((" HPDF_SaveToExternalStream\n"));
+
+  if (!HPDF_HasDoc (pdf))
+    return HPDF_INVALID_DOCUMENT;
+
+  InternalSaveToStream (pdf, stream);
+
+  return HPDF_CheckError (&pdf->error);
+}
+
+
+HPDF_EXPORT(HPDF_MMgr)
+HPDF_GetMMgr  (HPDF_Doc    pdf)
+{
+  HPDF_PTRACE ((" HPDF_GetMMgr\n"));
+
+  return pdf->mmgr;
+}
+
+
 HPDF_EXPORT(HPDF_Page)
 HPDF_GetCurrentPage  (HPDF_Doc   pdf)
 {
