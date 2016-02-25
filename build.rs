@@ -5,6 +5,9 @@ use std::fs;
 fn main() {
     let mut config = gcc::Config::new();
 
+    config.define("LIBHPDF_HAVE_NOZLIB", None);
+    config.define("LIBHPDF_HAVE_NOPNGLIB", None);
+
     let source_paths = fs::read_dir("libharu/src").unwrap()
         .map(|path| path.unwrap().path())
         .filter(|path| path.extension().unwrap() == "c");
