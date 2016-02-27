@@ -432,9 +432,9 @@ HPDF_Stream_WriteEscapeText2  (HPDF_Stream    stream,
 
     HPDF_PTRACE((" HPDF_Stream_WriteEscapeText2\n"));
 
-   /* The following block is commented out because it violates "PDF Spec 7.3.4.2 Literal Strings". 
-	* It states that the two matching parentheses must still be present to represent an empty 
-	* string of zero length. 
+   /* The following block is commented out because it violates "PDF Spec 7.3.4.2 Literal Strings".
+	* It states that the two matching parentheses must still be present to represent an empty
+	* string of zero length.
 	*/
    /*
     if (!len)
@@ -1394,6 +1394,7 @@ HPDF_CallbackReader_New  (HPDF_MMgr              mmgr,
                           HPDF_Stream_Seek_Func  seek_fn,
                           HPDF_Stream_Tell_Func  tell_fn,
                           HPDF_Stream_Size_Func  size_fn,
+                          HPDF_Stream_Free_Func  free_fn,
                           void*                  data)
 {
     HPDF_Stream stream;
@@ -1411,6 +1412,7 @@ HPDF_CallbackReader_New  (HPDF_MMgr              mmgr,
         stream->seek_fn = seek_fn;
         stream->tell_fn = tell_fn;
         stream->size_fn = size_fn;
+        stream->free_fn = free_fn;
         stream->attr = data;
         stream->type = HPDF_STREAM_CALLBACK;
     }

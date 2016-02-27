@@ -1526,7 +1526,7 @@ HPDF_LoadTTFontFromFile (HPDF_Doc         pdf,
     font_data = HPDF_FileReader_New (pdf->mmgr, file_name);
 
     if (HPDF_Stream_Validate (font_data)) {
-        ret = LoadTTFontFromStream (pdf, font_data, embedding, file_name);
+        ret = HPDF_LoadTTFontFromStream (pdf, font_data, embedding, file_name);
     } else
         ret = NULL;
 
@@ -1537,11 +1537,11 @@ HPDF_LoadTTFontFromFile (HPDF_Doc         pdf,
 }
 
 
-static const char*
-LoadTTFontFromStream (HPDF_Doc         pdf,
-                      HPDF_Stream      font_data,
-                      HPDF_BOOL        embedding,
-                      const char      *file_name)
+HPDF_EXPORT(const char*)
+HPDF_LoadTTFontFromStream (HPDF_Doc         pdf,
+                           HPDF_Stream      font_data,
+                           HPDF_BOOL        embedding,
+                           const char      *file_name)
 {
     HPDF_FontDef def;
 

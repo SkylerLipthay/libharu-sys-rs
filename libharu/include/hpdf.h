@@ -303,6 +303,13 @@ HPDF_LoadTTFontFromFile (HPDF_Doc     pdf,
 
 
 HPDF_EXPORT(const char*)
+HPDF_LoadTTFontFromStream (HPDF_Doc         pdf,
+                           HPDF_Stream      font_data,
+                           HPDF_BOOL        embedding,
+                           const char      *file_name);
+
+
+HPDF_EXPORT(const char*)
 HPDF_LoadTTFontFromFile2 (HPDF_Doc     pdf,
                           const char  *file_name,
                           HPDF_UINT    index,
